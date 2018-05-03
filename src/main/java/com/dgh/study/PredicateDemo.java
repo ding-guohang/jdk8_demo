@@ -32,4 +32,16 @@ public class PredicateDemo {
         System.out.print("Print language whose length greater than 4: ");
         filter(languages, (str) -> str.trim().length() > 4);
     }
+
+
+
+    public static void multiPredicatesRun() {
+        List<String> languages = Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp");
+
+        Predicate<String> startsWithJ = (n) -> n.startsWith("J");
+        Predicate<String> fourLetterLong = (n) -> n.length() == 4;
+        languages.stream()
+                .filter(startsWithJ.and(fourLetterLong))
+                .forEach((n) -> System.out.println("Languages, which starts with 'J' and four letter long is : " + n));
+    }
 }

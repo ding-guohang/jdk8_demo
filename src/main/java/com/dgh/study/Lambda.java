@@ -56,11 +56,23 @@ public class Lambda {
         features.forEach(System.out::print);
     }
 
+    private static void mapReduce() {
+        System.out.println("**  map reduce begin  **");
+        List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
+        costBeforeTax.stream().map((cost) -> cost + .12 * cost).forEach(System.out::println);
+        System.out.println("**  map reduce end  **");
+
+        double total = costBeforeTax.stream().map((cost) -> cost + .12 * cost).reduce((sum, cost) -> sum + cost).get();
+        System.out.println("total: " + total);
+    }
+
 
     public static void main(String[] args) {
         doThread();
         doImplements(10, 12);
         forEach();
         PredicateDemo.run();
+        PredicateDemo.multiPredicatesRun();
+        mapReduce();
     }
 }
