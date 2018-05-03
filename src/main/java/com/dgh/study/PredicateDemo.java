@@ -10,17 +10,7 @@ import java.util.function.Predicate;
 public class PredicateDemo {
 
     private static void filter(List<String> list, Predicate<String> condition) {
-        list.forEach((str) -> {
-            if (condition.test(str)) {
-                System.out.print(str);
-            }
-        });
-
-        for (String str : list) {
-            if (condition.test(str)) {
-//                System.out.println(str);
-            }
-        }
+        list.stream().filter(condition).forEach(System.out::print);
         System.out.println();
     }
 
