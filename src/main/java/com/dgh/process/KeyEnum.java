@@ -6,4 +6,6 @@ package com.dgh.process;
  * @author dingguohang on 2018/5/16
  */
 public enum KeyEnum {
+
+    DEMO;
 }
